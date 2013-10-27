@@ -66,15 +66,46 @@ Most important thing about planning a CRM project is being <em>un-sentimental</e
 </ul></li>
 </ul>
 <h3 id="api">API</h3>
-<p>Drupal - Uses PHP, Procedural hook system &gt; modularity: PSR/Symfony (paradigm) * Emphasis for Drupal is to put more emphasis on the Services module, need to keep eye on REST security moving forward. * Comparative examples outline differences</p>
+<p>Drupal - Uses PHP, Procedural hook system &gt; modularity: PSR/Symfony (paradigm)</p>
+<ul>
+<li>Emphasis for Drupal is to put more emphasis on the Services module, need to keep eye on REST security moving forward.</li>
+<li>Comparative examples outline differences</li>
+</ul>
 <h3 id="django-vs.-drupal">Django vs. Drupal</h3>
 <p>&quot;The fact that Django is so object-oriented inherently reduces th epotential for vulnerabilities (even by mistake) that are often seen in other procedural code because data will typically travel through a single common layer (or class) whereby data can be cleaned, security checks conducted, etc.&quot;</p>
 <p>Movement to Object Oriented model in Drupal 8, as part of a move to professionalize PHP.</p>
-<p>Speaker: &quot;Often compared to a field of Anarchy, where things act their own way.&quot; * php == &quot;anarchy&quot;</p>
+<p>Speaker: &quot;Often compared to a field of Anarchy, where things act their own way.&quot;</p>
+<ul>
+<li>php == &quot;anarchy&quot;</li>
+</ul>
 <p>Lookup: &quot;PHP: The Right Way&quot;, www.php-fig.org</p>
-<p>Dries Buytaert article on PHP over Java for Drupal * More approachable for amateur programmers. * Also, audience of Drupal did not include conservative bodies like Governments * However, since, these adopters have come. * Opportunity to standardize and professionalize the application, without becoming rigid.</p>
+<p>Dries Buytaert article on PHP over Java for Drupal</p>
+<ul>
+<li>More approachable for amateur programmers.</li>
+<li>Also, audience of Drupal did not include conservative bodies like Governments
+<ul>
+<li>However, since, these adopters have come.</li>
+</ul></li>
+<li>Opportunity to standardize and professionalize the application, without becoming rigid.</li>
+</ul>
 <h3 id="api-security">API Security</h3>
-<p>All have methods for filtering dangerous content. * Drupal * Filters on output rather than input! Same as WordPress, unlike others * Input filters (t(), check_plain, filter_xss, db_query); entities; form tokens; autho cookies; password hashing &amp; salting (SHA512), Twig * Twig is a new Drupal 8 templating framework—a dangerous attack vector. * US Government found that majority of security vulnerabilities live in templates! * Some good database abstraction which sort of serves as an ORM. * WordPress * Filters (wp_filter_kses(), $wpdb)</p>
+<p>All have methods for filtering dangerous content.</p>
+<ul>
+<li>Drupal
+<ul>
+<li>Filters on output rather than input! Same as WordPress, unlike others</li>
+<li>Input filters (t(), check_plain, filter_xss, db_query); entities; form tokens; autho cookies; password hashing &amp; salting (SHA512), Twig</li>
+<li>Twig is a new Drupal 8 templating framework—a dangerous attack vector.
+<ul>
+<li>US Government found that majority of security vulnerabilities live in templates!</li>
+</ul></li>
+<li>Some good database abstraction which sort of serves as an ORM.</li>
+</ul></li>
+<li>WordPress
+<ul>
+<li>Filters (wp_filter_kses(), $wpdb)</li>
+</ul></li>
+</ul>
 <h3 id="security-management">Security Management</h3>
 <p>Drupal has the most active security infrastructure, especially comparative to WordPress.</p>
 <ul>
@@ -97,28 +128,77 @@ Most important thing about planning a CRM project is being <em>un-sentimental</e
 <li>Don't set up monitoring, but they stop the hackers pre-emptively.</li>
 </ul></li>
 </ul>
-<p>!Idea: Java vs. PHP: Security Implications of Language Choice for Web Applications - James Walden (Northern Kentucky University). * <a href="freshmeat.net">http://freshmeat.net</a></p>
-<p>A lot of focus over the years on WordPress plugins * 20% of top plugins, including majority of ecommerce plugins had serious vulnerabilities * Researchers found that open source community did not take responsibility for security of community developments.</p>
+<p>!Idea: Java vs. PHP: Security Implications of Language Choice for Web Applications - James Walden (Northern Kentucky University).</p>
+<ul>
+<li><a href="freshmeat.net">http://freshmeat.net</a></li>
+</ul>
+<p>A lot of focus over the years on WordPress plugins</p>
+<ul>
+<li>20% of top plugins, including majority of ecommerce plugins had serious vulnerabilities
+<ul>
+<li>Researchers found that open source community did not take responsibility for security of community developments.</li>
+</ul></li>
+</ul>
 <h3 id="community-comparison">Community Comparison</h3>
 <p>Essentially, there are trade-offs between platforms from a security perspective, e.g. &quot;ease of use&quot; versus centralized management.</p>
 <h3 id="security-issue-drupal-core">Security Issue: Drupal Core</h3>
 <p>Some Recent Vulnerabilities</p>
-<p>Drupal: * Image module * Not checking whether a valid token was used to create an image derivative (could create on the fly, execute a DoS attack) * Context module * Not a sufficient check whether you had access—could gain access.</p>
-<p>WordPress * eCommerce plugin * Many issues with XSS * insufficient level of content filtering with wp_kses_post() * In another point, had not checked for proper permissions to allow only ordering of published items.</p>
+<p>Drupal:</p>
+<ul>
+<li>Image module
+<ul>
+<li>Not checking whether a valid token was used to create an image derivative (could create on the fly, execute a DoS attack)</li>
+</ul></li>
+<li>Context module
+<ul>
+<li>Not a sufficient check whether you had access—could gain access.</li>
+</ul></li>
+</ul>
+<p>WordPress</p>
+<ul>
+<li>eCommerce plugin
+<ul>
+<li>Many issues with XSS</li>
+<li>insufficient level of content filtering with wp_kses_post()</li>
+<li>In another point, had not checked for proper permissions to allow only ordering of published items.</li>
+</ul></li>
+</ul>
 <h3 id="compliance">Compliance</h3>
 <p>FISMA, standards for government bodies</p>
 <p>PCI, credit card standards</p>
 <p>Lots of toggles to form compliance:</p>
 <h3 id="roles-permissions">Roles &amp; Permissions</h3>
-<p>Drupal: * Very granular, but very complex that can generate vulnerabilities * However, this is possible to manage better with OA and WorkBench modules.</p>
+<p>Drupal:</p>
+<ul>
+<li>Very granular, but very complex that can generate vulnerabilities</li>
+<li>However, this is possible to manage better with OA and WorkBench modules.</li>
+</ul>
 <p>WordPress has more separation of administrative layer.</p>
 <h3 id="federated-identity-multi-factor-authentication">Federated Identity &amp; Multi-Factor Authentication</h3>
-<p>Drupal * OpenID, OAuth, LDAP, Google Authenticator, TFA/SmS, YubiKey, Duo, wikid, SAML: NIH Login, CAS,: OMB MAX, PIV * Features expanding for authentication * SAML and CAS are secure authentication protocols for many government agencies.</p>
+<p>Drupal</p>
+<ul>
+<li>OpenID, OAuth, LDAP, Google Authenticator, TFA/SmS, YubiKey, Duo, wikid, SAML: NIH Login, CAS,: OMB MAX, PIV</li>
+<li>Features expanding for authentication</li>
+<li>SAML and CAS are secure authentication protocols for many government agencies.</li>
+</ul>
 <h3 id="vulnerability-assessment">Vulnerability Assessment</h3>
-<p>Drupal * security review, coder/secure code review, dpscan, security scanner</p>
+<p>Drupal</p>
+<ul>
+<li>security review, coder/secure code review, dpscan, security scanner</li>
+</ul>
 <h3 id="hardening">Hardening</h3>
-<p>Drupal * Hardened Drupal, Guardr, Paranoia * Guardr install profile activiates many helpful * Acquia maintains a great overview of security modules with Drupal Scout</p>
-<p>WordPress * Integrated security plugins (Better WPSecurity, BulletProof Security), Secure WordPress.A</p>
+<p>Drupal</p>
+<ul>
+<li>Hardened Drupal, Guardr, Paranoia
+<ul>
+<li>Guardr install profile activiates many helpful</li>
+<li>Acquia maintains a great overview of security modules with Drupal Scout</li>
+</ul></li>
+</ul>
+<p>WordPress</p>
+<ul>
+<li>Integrated security plugins (Better WPSecurity, BulletProof Security), Secure WordPress.A</li>
+</ul>
 <h3 id="continuous-monitoring">Continuous Monitoring</h3>
 <ul>
 <li>By default, you often get a wealth of data which is difficult to filter</li>
@@ -126,7 +206,14 @@ Most important thing about planning a CRM project is being <em>un-sentimental</e
 <li>A lot of security modules are at a nascent stage.</li>
 </ul>
 <h3 id="hosting-platforms-and-environment">Hosting Platforms and Environment</h3>
-<p>Drupal * LAMP: Apache/Nginx/IIs, Mysql/Maria/PostgreSQL/MSSQL/Oracle, PHP 5.3 * Follow fork to MariaDB * Oracle was becoming less transparent in terms of security</p>
+<p>Drupal</p>
+<ul>
+<li>LAMP: Apache/Nginx/IIs, Mysql/Maria/PostgreSQL/MSSQL/Oracle, PHP 5.3</li>
+<li>Follow fork to MariaDB
+<ul>
+<li>Oracle was becoming less transparent in terms of security</li>
+</ul></li>
+</ul>
 <h3 id="drupal.org-security-incident">Drupal.org Security Incident</h3>
 <ul>
 <li>Breach of drupal.org, compromised</li>
@@ -148,7 +235,12 @@ Most important thing about planning a CRM project is being <em>un-sentimental</e
 <h3 id="cognitive-biases">Cognitive Biases</h3>
 <p>When we have a heuristic that is in some fashion illogical or erroneous</p>
 <h4 id="example">Example</h4>
-<p>Different ways of displaying the expanded form of 9! yields different incorrect results * Starting with 1 gives ~500 * Starting with 9 gives ~4200 * Total is ~ 36,000?</p>
+<p>Different ways of displaying the expanded form of 9! yields different incorrect results</p>
+<ul>
+<li>Starting with 1 gives ~500</li>
+<li>Starting with 9 gives ~4200</li>
+<li>Total is ~ 36,000?</li>
+</ul>
 <p>Humans have a bias toward initial data for instance.</p>
 <h4 id="inspirational-white-dudes">Inspirational White Dudes</h4>
 <ul>
@@ -161,7 +253,10 @@ Most important thing about planning a CRM project is being <em>un-sentimental</e
 <li>More down-to-earth, also good TED talks on irrationality</li>
 </ul></li>
 </ul>
-<p>Do we trust these folks? They are pioneers in psychology, which is convenient since there are supposedly controlled empirical experiments * Pioneers of usability research /before/ it existed.</p>
+<p>Do we trust these folks? They are pioneers in psychology, which is convenient since there are supposedly controlled empirical experiments</p>
+<ul>
+<li>Pioneers of usability research /before/ it existed.</li>
+</ul>
 <p>Many Biases</p>
 <h4 id="common-types">Common Types</h4>
 <ul>
@@ -264,13 +359,33 @@ Most important thing about planning a CRM project is being <em>un-sentimental</e
 </ul>
 <p>! Metric: Consider whether your use of biases, patterns, etc in a way that is aligned with the needs of your user.</p>
 <h3 id="design-patterns">Design Patterns</h3>
-<p>Acquia is assembling a design patterns document. One of them: * I'm worthy of your trust * I say what I mean and I do what I say. It's not in my nature to trick, conceal, handwave, or manipulate. My success is directly aligned with yours and your good opinion is invaluable</p>
+<p>Acquia is assembling a design patterns document. One of them:</p>
+<ul>
+<li>I'm worthy of your trust
+<ul>
+<li>I say what I mean and I do what I say. It's not in my nature to trick, conceal, handwave, or manipulate. My success is directly aligned with yours and your good opinion is invaluable</li>
+</ul></li>
+</ul>
 <h3 id="questions">Questions</h3>
-<p>Sunk-Cost Fallacy Strategies * Do an actual calculation of support cost * However, another cognitive bias to frustrate this * Folks have a tendency to value near-term costs over long-term costs.</p>
+<p>Sunk-Cost Fallacy Strategies</p>
+<ul>
+<li>Do an actual calculation of support cost</li>
+<li>However, another cognitive bias to frustrate this
+<ul>
+<li>Folks have a tendency to value near-term costs over long-term costs.</li>
+</ul></li>
+</ul>
 <h2 id="data-management-applications-with-drupal-as-your-framework">Data Management Applications with Drupal as your Framework</h2>
-<p>!Tripal - Genomics in Drupal * Generic Model Organism Database - DB schema</p>
+<p>!Tripal - Genomics in Drupal</p>
+<ul>
+<li>Generic Model Organism Database - DB schema</li>
+</ul>
 <p>Kept building data apps, so eventually decided to make it more modular, reusable.</p>
-<p>Saw drupal, has nice features: * User, roles, auth * Forms, data handling, etc</p>
+<p>Saw drupal, has nice features:</p>
+<ul>
+<li>User, roles, auth</li>
+<li>Forms, data handling, etc</li>
+</ul>
 <h3 id="data-development">Data development</h3>
 <p>Chose to write data application without CCK, so this is all in code.</p>
 <ul>
@@ -287,7 +402,15 @@ Most important thing about planning a CRM project is being <em>un-sentimental</e
 <p>Can have as many or few roles as you need, granular permissions</p>
 <p>In terms of content access, can use built-in realms and grants</p>
 <p>Uses Content and Forms features to develop platform</p>
-<p>Advantage of Drupal is &quot;aspect-oriented&quot; paradigm rather than MVC * Flexibility is integral, things change on a regular term * The module handles everything concerning the particular aspect * The alumni module handles the fields, the submission, form handling, etc. * Usage of hooks (actions) as callbacks through the standard process</p>
+<p>Advantage of Drupal is &quot;aspect-oriented&quot; paradigm rather than MVC</p>
+<ul>
+<li>Flexibility is integral, things change on a regular term</li>
+<li>The module handles everything concerning the particular aspect
+<ul>
+<li>The alumni module handles the fields, the submission, form handling, etc.</li>
+</ul></li>
+<li>Usage of hooks (actions) as callbacks through the standard process</li>
+</ul>
 <h2 id="demo-framework">Demo Framework</h2>
 <p>Keeping it simple, this is fairly simple (though lengthy) install:</p>
 <p><a href="Demo%20Framework">https://drupal.org/project/df</a></p>
@@ -296,3 +419,114 @@ Most important thing about planning a CRM project is being <em>un-sentimental</e
 <p>To work with a client, ended up developing a new use case for a proper, thinner framework based on DF for sites:</p>
 <p><a href="Lightning">https://drupal.org/project/lightning</a></p>
 <p>!Basically, as far as I can tell, this project is a low-level closely drupal-integrated solution for making a data application</p>
+<h2 id="project-prophylaxis">Project Prophylaxis</h2>
+<p>A <em>prophylactic</em> is a mechanism to prevent the transmission of disease.</p>
+<p><em>Practicing Project Prophylaxis</em> is the practice of using legally protectie measures when working with clients by contract.</p>
+<h3 id="exposed">Exposed</h3>
+<p>You can feel exposed as a developer, designer, engineer, or even member of a new business.</p>
+<p>Crowd is mostly shop owners / directors. A few contractors. One &quot;other&quot;.</p>
+<h3 id="client-relationship">Client Relationship</h3>
+<p>Consider the relationship through the entire lifecycle of the process.</p>
+<blockquote>
+<p><em>Choose clients wisely</em></p>
+</blockquote>
+<p>Tips:</p>
+<ul>
+<li>Know your skills / comfort zone</li>
+<li>Align personalities / mission</li>
+<li>Understand what success looks like ** Have metrics for success?</li>
+</ul>
+<p>Often, go through discovery phase, work on spec (for pay), allow room for alternative vendors. &gt; <em>Interestingly, this is never the case.</em></p>
+<p>If you're crafting a contract, you'll be agreeing to deliverables. Discovery phase gives a chance to get a feel for client and scope. &gt; All those present are agile, so this is a consistent process</p>
+<p><strong>Q:</strong> How detailed is that spec?</p>
+<p><strong>A:</strong> Depends. Outline as:</p>
+<ul>
+<li>UX Artefacts</li>
+<li>WireFrames</li>
+<li>Assets</li>
+<li>Tech Strategy</li>
+<li>Information / content</li>
+</ul>
+<p>Use a boiler plate contract that effectively agrees that the client will pay. The deliverables are specified out in particular. Some use a time &amp; materials contract--hourly work, in good faith in estimates, but the client can derail at any time with crazy requests. If you're not really strict about that you can run through their budget with half a project. This is important for your record. You may be legally protected, but you have a business obligation to right somehow.</p>
+<p>The message here:</p>
+<blockquote>
+<p><em>There's a lot of gray area</em></p>
+</blockquote>
+<p>Every client is different, need to foster the relationship while also using the same protections across.</p>
+<h3 id="negotiation-and-contracts">Negotiation and contracts</h3>
+<p>Scopes of Work can be 20 pages long! These aren't necessary, detestable. As long as you have an understanding going forward, not everything has to be in the Scope of Work, you'll have good legal protection.</p>
+<p>A good lawyer is going to write a boilerplate contract in your best favor. When you go in to signing someone else's contract, be aware that they want to have an edge, have terms that are in their favor.</p>
+<ul>
+<li>Negotiation tips:
+<ul>
+<li>Confidence
+<ul>
+<li>Most clients feel like they're being wrong or mean, have to be comfortable being matter-of-fact. Ask for stuff, and say &quot;No&quot;.</li>
+</ul></li>
+<li>Strawmen
+<ul>
+<li>Talk to someone else to get feedback in the middle of a negotiation</li>
+</ul></li>
+<li>Advocates
+<ul>
+<li>Most important factor—need to connect with your advocate to make it through e.g. &quot;procurement&quot;</li>
+</ul></li>
+</ul></li>
+<li>Battle of the Forms:
+<ul>
+<li>Proposals, SOWs, MSAs, POs, yadda yadda...</li>
+<li>Be careful because MSA language may supercede SOW terms about when/how to get paid.</li>
+<li>Do search for &quot;indemn&quot; strike out indemnification against you.</li>
+<li>Also warranties and representations</li>
+<li>Don't assign rights of your toolkit to the client! (Careful of the &quot;open source&quot; clauses)</li>
+</ul></li>
+<li>Contract Basics
+<ul>
+<li>Money (Approvals and satisfaction), liability (reps/warranties and indemnity), and Rights (don't &quot;assign&quot; your toolkit</li>
+</ul></li>
+<li>Money
+<ul>
+<li>&quot;Posession is 9/10ths of th elaw.&quot;</li>
+</ul></li>
+</ul>
+<p>Majority of Gabe's clients are using fixed-pay. Number one concern is scope creep versus milestone and deliverable. Some of his biggest clients use fairly generic language.</p>
+<p>Be careful of acceptance statements and satisfaction language. &gt; &quot;Full discretion&quot; besides &quot;reasonable discretion&quot;?</p>
+<p>Difference between a SOW and Terms—the simplicity of individual words like &quot;sole&quot;</p>
+<h3 id="getting-it-done">Getting it Done</h3>
+<ul>
+<li>Discover and set expectations: communication, risks, requirements</li>
+<li>Meet expectations: Build it well, product reviews</li>
+<li>Manage expectations: status, scope control</li>
+<li>Invoice early and often</li>
+<li>Be consistent, proactive, and reinforce value</li>
+<li>Write it down.</li>
+</ul>
+<p>Metaphor: the same way you pay attention to your servers you should pay attention to your contracts—you can get hacked.</p>
+<p>Agreeing to it in writing—<em>you've got a contract!</em></p>
+<p>!Arbitration can be <em>gamed</em> &gt; Example: one of Gabe's clients had a client that extended the cost quite a bit, making it expensive.</p>
+<p><strong>BIG LEVER:</strong> Put an attorney's fees clause in the contract, so you can argue for $30k-$40k contracts.</p>
+<h3 id="client-sgone-wild">Client sGone Wild</h3>
+<ul>
+<li>Challenge: protecting clients from themselves--stakes are high!</li>
+<li>Contracts in Agile work, when to use change order? SOW?</li>
+<li>Manage expectations while protecting yourself in T&amp;M: keep focused on MVP and remember your backlog
+<ul>
+<li>Can use the backlog as a good metaphor and communications tool with clients. Use this feedback speedily!</li>
+</ul></li>
+<li>Stay strong</li>
+<li>Non-payments, silent treatment, rude behavior</li>
+</ul>
+<h3 id="firing-clients">Firing Clients</h3>
+<p>Trying to be <strong>partners</strong> with all of your clients, on the <em>survivor island</em>.</p>
+<p>When there is <strong>animosity</strong> get away as fast as you can.</p>
+<p>!Know what <strong>indemnity</strong> means! Pay your lawyer some money now to save you tons later!</p>
+<h3 id="conclusion">Conclusion</h3>
+<ul>
+<li>Choose your clients with discretion</li>
+<li>Always wear a contract</li>
+<li>Make sure it fits</li>
+<li>Foster the relationship</li>
+<li>Be the stable one</li>
+<li>Communicate</li>
+</ul>
+<p>If you have to... <strong><em>Walk Away</em></strong></p>

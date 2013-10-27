@@ -84,6 +84,7 @@ Drupal.org acts as a security gateway to drupal modules, but as modules move to 
 Examples of systems having their repositories compromised in the last couple of years:
 
 ### Versioning
+
 * FreeBSD compromised with third-party packages in conversion between cvs to subversion.
     * Took a while to find out what had been changed due to central cvs control mechanism
 * Linux Kernel: This happened a few years ago to Linux as well
@@ -91,6 +92,7 @@ Examples of systems having their repositories compromised in the last couple of 
 
 ### API
 Drupal - Uses PHP, Procedural hook system > modularity: PSR/Symfony (paradigm)
+
 * Emphasis for Drupal is to put more emphasis on the Services module, need to keep eye on REST security moving forward.
 * Comparative examples outline differences
 
@@ -100,11 +102,13 @@ Drupal - Uses PHP, Procedural hook system > modularity: PSR/Symfony (paradigm)
 Movement to Object Oriented model in Drupal 8, as part of a move to professionalize PHP.
 
 Speaker: "Often compared to a field of Anarchy, where things act their own way."
+
 * php == "anarchy"
 
 Lookup: "PHP: The Right Way", www.php-fig.org
 
 Dries Buytaert article on PHP over Java for Drupal
+
 * More approachable for amateur programmers.
 * Also, audience of Drupal did not include conservative bodies like Governments
     * However, since, these adopters have come.
@@ -112,6 +116,7 @@ Dries Buytaert article on PHP over Java for Drupal
 
 ### API Security
 All have methods for filtering dangerous content.
+
 * Drupal
     * Filters on output rather than input! Same as WordPress, unlike others
     * Input filters (t(), check_plain, filter_xss, db_query); entities; form tokens; autho cookies; password hashing & salting (SHA512), Twig
@@ -139,9 +144,11 @@ Drupal has the most active security infrastructure, especially comparative to Wo
     * Don't set up monitoring, but they stop the hackers pre-emptively.
 
 !Idea: Java vs. PHP: Security Implications of Language Choice for Web Applications - James Walden (Northern Kentucky University). 
+
 * [http://freshmeat.net](freshmeat.net)
 
 A lot of focus over the years on WordPress plugins
+
 * 20% of top plugins, including majority of ecommerce plugins had serious vulnerabilities
     * Researchers found that open source community did not take responsibility for security of community developments.
 
@@ -154,12 +161,14 @@ Essentially, there are trade-offs between platforms from a security perspective,
 Some Recent Vulnerabilities
 
 Drupal:
+
 * Image module
     * Not checking whether a valid token was used to create an image derivative (could create on the fly, execute a DoS attack)
 * Context module
     * Not a sufficient check whether you had access&mdash;could gain access.
 
 WordPress
+
 * eCommerce plugin
     * Many issues with XSS
     * insufficient level of content filtering with wp_kses_post()
@@ -176,6 +185,7 @@ Lots of toggles to form compliance:
 ### Roles & Permissions
 
 Drupal:
+
 * Very granular, but very complex that can generate vulnerabilities
 * However, this is possible to manage better with OA and WorkBench modules.
 
@@ -184,6 +194,7 @@ WordPress has more separation of administrative layer.
 ### Federated Identity & Multi-Factor Authentication
 
 Drupal
+
 * OpenID, OAuth, LDAP, Google Authenticator, TFA/SmS, YubiKey, Duo, wikid, SAML: NIH Login, CAS,: OMB MAX, PIV
 * Features expanding for authentication
 * SAML and CAS are secure authentication protocols for many government agencies.
@@ -191,16 +202,19 @@ Drupal
 ### Vulnerability Assessment
 
 Drupal
+
 * security review, coder/secure code review, dpscan, security scanner
 
 ### Hardening
 
 Drupal
+
 * Hardened Drupal, Guardr, Paranoia
     * Guardr install profile activiates many helpful
     * Acquia maintains a great overview of security modules with Drupal Scout
 
 WordPress
+
 * Integrated security plugins (Better WPSecurity, BulletProof Security), Secure WordPress.A
 
 ### Continuous Monitoring
@@ -214,11 +228,13 @@ w
 ### Hosting Platforms and Environment
 
 Drupal
+
 * LAMP: Apache/Nginx/IIs, Mysql/Maria/PostgreSQL/MSSQL/Oracle, PHP 5.3
 * Follow fork to MariaDB
     * Oracle was becoming less transparent in terms of security
 
 ### Drupal.org Security Incident
+
 * Breach of drupal.org, compromised
 * Had to reset passwords
 * Third-party software breached: undisclosed
@@ -226,6 +242,7 @@ Drupal
     * Depending on Apache, Cash, Chef, Solar, Maria, Linux, etc.
 
 ### Security Ninja
+
 * Only possibly by effectively understanding the other components to become a *Security Rockstar*!
 
 
@@ -243,6 +260,7 @@ When we have a heuristic that is in some fashion illogical or erroneous
 #### Example
 
 Different ways of displaying the expanded form of 9! yields different incorrect results
+
 * Starting with 1 gives ~500
 * Starting with 9 gives ~4200
 * Total is ~ 36,000?
@@ -259,11 +277,13 @@ Humans have a bias toward initial data for instance.
     * More down-to-earth, also good TED talks on irrationality
 
 Do we trust these folks? They are pioneers in psychology, which is convenient since there are supposedly controlled empirical experiments
+
 * Pioneers of usability research /before/ it existed.
 
 Many Biases
 
 #### Common Types
+
 * Confirmation bias
     * Will gravitate to data that confirms existing beliefs
     * Ex: searching for "the right solution" online can simply yield the same /incorrect/ solution
@@ -321,6 +341,7 @@ Many Biases
 !Anchors can encourage the user to make a choice that seems reasonable in context, rather than actual cost and value (e.g. three options, middle highlighted). 
 
 #### Ethical Considerations
+
 * may not be illegal or necessarily wrong, but it could be unethical.
 * Check out the [](Dark Patterns Library):
     * Already opted-in to receiving spam emails after signing up for something.
@@ -331,12 +352,14 @@ Many Biases
 
 ### Design Patterns
 Acquia is assembling a design patterns document. One of them:
+
 * I'm worthy of your trust
     * I say what I mean and I do what I say. It's not in my nature to trick, conceal, handwave, or manipulate. My success is directly aligned with yours and your good opinion is invaluable
 
 ### Questions
 
 Sunk-Cost Fallacy Strategies
+
 * Do an actual calculation of support cost
 * However, another cognitive bias to frustrate this
     * Folks have a tendency to value near-term costs over long-term costs. 
@@ -345,11 +368,13 @@ Sunk-Cost Fallacy Strategies
 ## Data Management Applications with Drupal as your Framework
 
 !Tripal - Genomics in Drupal
+
 * Generic Model Organism Database - DB schema
 
 Kept building data apps, so eventually decided to make it more modular, reusable.
 
 Saw drupal, has nice features:
+
 * User, roles, auth
 * Forms, data handling, etc
 
@@ -374,6 +399,7 @@ In terms of content access, can use built-in realms and grants
 Uses Content and Forms features to develop platform
 
 Advantage of Drupal is "aspect-oriented" paradigm rather than MVC
+
 * Flexibility is integral, things change on a regular term
 * The module handles everything concerning the particular aspect
     * The alumni module handles the fields, the submission, form handling, etc.
@@ -394,3 +420,130 @@ To work with a client, ended up developing a new use case for a proper, thinner 
 [https://drupal.org/project/lightning](Lightning)
 
 !Basically, as far as I can tell, this project is a low-level closely drupal-integrated solution for making a data application
+
+
+## Project Prophylaxis
+
+A *prophylactic* is a mechanism to prevent the transmission of disease.
+
+*Practicing Project Prophylaxis* is the practice of using legally protectie measures when working with clients by contract.
+
+### Exposed
+
+You can feel exposed as a developer, designer, engineer, or even member of a new business.
+
+Crowd is mostly shop owners / directors. A few contractors. One "other".
+
+### Client Relationship
+
+Consider the relationship through the entire lifecycle of the process.
+
+> *Choose clients wisely*
+
+Tips:
+
+* Know your skills / comfort zone
+* Align personalities / mission
+* Understand what success looks like
+** Have metrics for success?
+
+Often, go through discovery phase, work on spec (for pay), allow room for alternative vendors.
+> *Interestingly, this is never the case.*
+
+If you're crafting a contract, you'll be agreeing to deliverables. Discovery phase gives a chance to get a feel for client and scope.
+> All those present are agile, so this is a consistent process
+
+**Q:** How detailed is that spec?
+
+**A:** Depends. Outline as:
+
+* UX Artefacts
+* WireFrames
+* Assets
+* Tech Strategy
+* Information / content
+
+Use a boiler plate contract that effectively agrees that the client will pay. The deliverables are specified out in particular. Some use a time & materials contract--hourly work, in good faith in estimates, but the client can derail at any time with crazy requests. If you're not really strict about that you can run through their budget with half a project. This is important for your record. You may be legally protected, but you have a business obligation to right somehow.
+
+The message here:
+
+> *There's a lot of gray area*
+
+Every client is different, need to foster the relationship while also using the same protections across.
+
+### Negotiation and contracts
+
+Scopes of Work can be 20 pages long! These aren't necessary, detestable. As long as you have an understanding going forward, not everything has to be in the Scope of Work, you'll have good legal protection.
+
+A good lawyer is going to write a boilerplate contract in your best favor. When you go in to signing someone else's contract, be aware that they want to have an edge, have terms that are in their favor.
+
+* Negotiation tips:
+    * Confidence
+        * Most clients feel like they're being wrong or mean, have to be comfortable being matter-of-fact. Ask for stuff, and say "No".
+    * Strawmen
+        * Talk to someone else to get feedback in the middle of a negotiation
+    * Advocates
+        * Most important factor&mdash;need to connect with your advocate to make it through e.g. "procurement"
+* Battle of the Forms:
+    * Proposals, SOWs, MSAs, POs, yadda yadda...
+    * Be careful because MSA language may supercede SOW terms about when/how to get paid.
+    * Do search for "indemn" strike out indemnification against you.
+    * Also warranties and representations
+    * Don't assign rights of your toolkit to the client! (Careful of the "open source" clauses)
+* Contract Basics
+    * Money (Approvals and satisfaction), liability (reps/warranties and indemnity), and Rights (don't "assign" your toolkit
+* Money
+    * "Posession is 9/10ths of th elaw."
+
+Majority of Gabe's clients are using fixed-pay. Number one concern is scope creep versus milestone and deliverable. Some of his biggest clients use fairly generic language.
+
+Be careful of acceptance statements and satisfaction language.
+> "Full discretion" besides "reasonable discretion"?
+
+Difference between a SOW and Terms&mdash;the simplicity of individual words like "sole"
+
+### Getting it Done
+
+* Discover and set expectations: communication, risks, requirements
+* Meet expectations: Build it well, product reviews
+* Manage expectations: status, scope control
+* Invoice early and often
+* Be consistent, proactive, and reinforce value
+* Write it down.
+
+Metaphor: the same way you pay attention to your servers you should pay attention to your contracts&mdash;you can get hacked.
+
+Agreeing to it in writing&mdash;*you've got a contract!*
+
+!Arbitration can be *gamed*
+> Example: one of Gabe's clients had a client that extended the cost quite a bit, making it expensive.
+
+**BIG LEVER:** Put an attorney's fees clause in the contract, so you can argue for $30k-$40k contracts.
+
+### Client sGone Wild
+
+* Challenge: protecting clients from themselves--stakes are high!
+* Contracts in Agile work, when to use change order? SOW?
+* Manage expectations while protecting yourself in T&M: keep focused on MVP and remember your backlog
+    * Can use the backlog as a good metaphor and communications tool with clients. Use this feedback speedily!
+* Stay strong
+* Non-payments, silent treatment, rude behavior
+
+### Firing Clients
+
+Trying to be **partners** with all of your clients, on the *survivor island*.
+
+When there is **animosity** get away as fast as you can.
+
+!Know what **indemnity** means! Pay your lawyer some money now to save you tons later!
+
+### Conclusion
+
+* Choose your clients with discretion
+* Always wear a contract
+* Make sure it fits
+* Foster the relationship
+* Be the stable one
+* Communicate
+
+If you have to... __*Walk Away*__
